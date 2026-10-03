@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Route-OPT — Quantum-Inspired Traffic Optimization</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+
+      /* ── CSS custom properties for theming ───────────────────────────────── */
+      :root[data-theme="dark"] {
+        --bg-base:       #0d1117;
+        --bg-surface:    #161b22;
+        --bg-elevated:   #21262d;
+        --border:        #30363d;
+        --text-primary:  #e6edf3;
+        --text-muted:    #8b949e;
+        --text-faint:    #484f58;
+        --accent-blue:   #58a6ff;
+        --accent-green:  #3fb950;
+        --accent-orange: #ffa657;
+        --accent-red:    #f78166;
+        --accent-purple: #d2a8ff;
+        --btn-primary:   #1f6feb;
+        --btn-primary-h: #388bfd;
+        --btn-danger:    #b91c1c;
+        --scrollbar-bg:  #21262d;
+        --scrollbar-th:  #484f58;
+      }
+
+      :root[data-theme="light"] {
+        --bg-base:       #f6f8fa;
+        --bg-surface:    #ffffff;
+        --bg-elevated:   #f0f3f6;
+        --border:        #d0d7de;
+        --text-primary:  #1f2328;
+        --text-muted:    #656d76;
+        --text-faint:    #9a9fa8;
+        --accent-blue:   #0969da;
+        --accent-green:  #1a7f37;
+        --accent-orange: #bf8700;
+        --accent-red:    #cf222e;
+        --accent-purple: #8250df;
+        --btn-primary:   #0969da;
+        --btn-primary-h: #0860ca;
+        --btn-danger:    #cf222e;
+        --scrollbar-bg:  #f0f3f6;
+        --scrollbar-th:  #d0d7de;
+      }
+
+      html { transition: background 0.25s, color 0.25s; }
+      body {
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        background: var(--bg-base);
+        color: var(--text-primary);
+        min-height: 100vh;
+      }
+
+      /* Scrollbar styling */
+      ::-webkit-scrollbar { width: 6px; height: 6px; }
+      ::-webkit-scrollbar-track { background: var(--scrollbar-bg); }
+      ::-webkit-scrollbar-thumb { background: var(--scrollbar-th); border-radius: 3px; }
+
+      /* Leaflet dark map fix */
+      .leaflet-container {
+        background: var(--bg-elevated) !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
