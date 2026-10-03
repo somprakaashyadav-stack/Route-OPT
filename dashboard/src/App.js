@@ -77,7 +77,10 @@ const ROUTE_COLORS = [
   '#d2a8ff', '#79c0ff', '#56d364', '#ff9f1c'
 ];
 
-const API = ''; // proxied to http://localhost:8000
+const API = process.env.REACT_APP_API_URL || '';
+const WS_URL = process.env.REACT_APP_WS_URL || (
+  API ? API.replace(/^http/, 'ws') + '/ws/traffic' : 'ws://localhost:8000/ws/traffic'
+);
 
 // ── Reusable UI primitives ────────────────────────────────────────────────────
 
@@ -512,7 +515,7 @@ function Dashboard() {
   // ── Live traffic WebSocket ────────────────────────────────────────────────
   useEffect(() => {
     const connect = () => {
-      const ws = new WebSocket('ws://localhost:8000/ws/traffic');
+      const ws = new WebSocket(WS_URL);
       ws.onmessage = e => {
         const msg = JSON.parse(e.data);
         if (msg.type === 'traffic_update') {
